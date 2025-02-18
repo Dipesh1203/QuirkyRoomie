@@ -1,0 +1,10 @@
+# dependencies related files
+node_modules
+dist
+package-lock.json
+
+#log files
+/logs
+
+# dotenv environment variables file
+.env
