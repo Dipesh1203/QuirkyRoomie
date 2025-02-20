@@ -1,6 +1,4 @@
-Here's a README template for your **QuirkyRoomie** project setup:  
 
----
 
 # QuirkyRoomie
 
