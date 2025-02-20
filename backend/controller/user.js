@@ -2,6 +2,7 @@ const User = require("../models/user.js");
 const dotenv = require("dotenv");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const flat_group = require("../models/flat_group.js");
 dotenv.config();
 
 const signup = async (req, res) => {
@@ -16,6 +17,13 @@ const signup = async (req, res) => {
 
     user = new User({ username, email, password: hashedPassword, flat_code });
     await user.save();
+    if (flat_group) {
+      await FlatGroup.findByIdAndUpdate(
+        flatGroupId,
+        { $addToSet: { users: userId } },
+        { new: true }
+      );
+    }
 
     res.status(201).json({ msg: "User registered successfully" });
   } catch (err) {

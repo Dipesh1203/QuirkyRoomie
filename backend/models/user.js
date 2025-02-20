@@ -5,7 +5,11 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
   id: { type: Schema.Types.String, default: uuidv4 },
   username: { type: Schema.Types.String, unquie: true, required: true },
-  flate_code: { type: Schema.Types.ObjectId, ref: "flate_group" },
+  flate_code: {
+    type: Schema.Types.ObjectId,
+    ref: "FlatGroup",
+    default: null,
+  },
   password: { type: Schema.Types.String, required: true },
   email: { type: Schema.Types.String, unique: true, required: true },
 });

@@ -30,6 +30,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(`/api/auth`, require("./routes/user.routes"));
 app.use(`/api/complaints`, require("./routes/complain.routes"));
 app.use(`/api`, require("./routes/stat.routes"));
+app.use(`/api/flat`, require("./routes/flat.routes"));
 
 app.listen({ port: process.env.PORT || 8000 }, () => {
   console.log(`Listening On ${process.env.PORT}`);

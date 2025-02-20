@@ -1,6 +1,6 @@
 const express = require("express");
 const Complaint = require("../models/complain");
-const authMiddleware = require("../utils/middleware");
+const { authorize } = require("../utils/middleware");
 const {
   topUpVoteComplains,
   voteComplain,
@@ -11,16 +11,16 @@ const {
 const router = express.Router();
 
 // /api/complaints
-router.post("/", authMiddleware, createComplain);
+router.post("/", authorize, createComplain);
 
 // /api/complaints
 router.get("/", listAllComplain);
 
 // /api/complaints/:id/resolve resolved
-router.put("/:id/resolve", authMiddleware, solveComplain);
+router.put("/:id/resolve", authorize, solveComplain);
 
 // /api/complaints/:id/vote
-router.post("/:id/vote", authMiddleware, voteComplain);
+router.post("/:id/vote", authorize, voteComplain);
 
 // /api/complaints/trending
 router.get("/trending", topUpVoteComplains);

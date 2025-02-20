@@ -3,7 +3,7 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 
-module.exports = function (req, res, next) {
+const authorize = (req, res, next) => {
   const token = req.header("Authorization");
   if (!token)
     return res.status(401).json({ msg: "No token, authorization denied" });
@@ -19,3 +19,4 @@ module.exports = function (req, res, next) {
     res.status(401).json({ msg: "Invalid token" });
   }
 };
+module.exports = { authorize };
