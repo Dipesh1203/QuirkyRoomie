@@ -13,10 +13,10 @@ QuirkyRoomie is a platform designed to help users find and connect with ideal ro
 - Reviews and ratings
 
 ## 🛠 Tech Stack
-- **Frontend:** Next.js, React, Tailwind CSS
+- **Frontend:** React, Tailwind CSS
 - **Backend:** Node.js, Express.js
 - **Database:** MongoDB, Mongoose
-- **Authentication:** NextAuth.js
+- **Authentication:** Bcrypt,JWT
 - **Storage:** Cloudinary (for image uploads)
 
 ---
